@@ -163,12 +163,12 @@ echo "========= Submitting transaction from a different peer (peer0.org2) which 
 echo
 setGlobals 0 2
 set -x
-peer channel update -f finally_update_in_envelope.pb -c ${CHANNEL_NAME} -o orderer.example.com:7050 --tls --cafile ${ORDERER_CA}
+peer channel update -f finally_update_in_envelope.pb -c ${CHANNEL_NAME} -o orderer0.example.com:7050 --tls --cafile ${ORDERER_CA}
 set +x
 
 echo "Verify================= "
 
-peer channel fetch config config_new_block.pb -o orderer.example.com:7050 -c $CHANNEL_NAME --tls --cafile $ORDERER_CA
+peer channel fetch config config_new_block.pb -o orderer0.example.com:7050 -c $CHANNEL_NAME --tls --cafile $ORDERER_CA
 
 configtxlator proto_decode --input config_new_block.pb --type common.Block | jq .data.data[0].payload.data.config > config_new_block.json
 
