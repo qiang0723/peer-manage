@@ -140,7 +140,7 @@ set -x
 #jq ".channel_group.groups.Orderer.values.BatchSize.value.max_message_count = 20" config.json  > modified_config.json
 
 echo "Config generate blok's time"
-jq ".channel_group.groups.Orderer.values.BatchTimeout.value.timeout=\"10s\"" config.json > modified_config.json
+jq ".channel_group.groups.Orderer.values.BatchTimeout.value.timeout=\"3s\"" config.json > modified_config.json
 
 #echo "config block's size"
 #jq ".channel_group.groups.Orderer.values.BatchTimeout.value.absolute_max_bytes=10485760" config.json > modified_config.json
