@@ -20,8 +20,8 @@ verifyResult () {
 # Set OrdererOrg.Admin globals
 setOrdererGlobals() {
         CORE_PEER_LOCALMSPID="OrdererMSP"
-        CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/zhigui/zigledger/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
-        CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/zhigui/zigledger/peer/crypto/ordererOrganizations/example.com/users/Admin@example.com/msp
+        CORE_PEER_TLS_ROOTCERT_FILE=/etc/zhigui/msp/crypto/ordererOrganizations/example.com/orderers/orderer0.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
+        CORE_PEER_MSPCONFIGPATH=/etc/zhigui/msp/crypto/ordererOrganizations/example.com/users/Admin@example.com/msp
 }
 
 setGlobals () {
@@ -29,8 +29,8 @@ setGlobals () {
 	ORG=$2
 	if [ $ORG -eq 1 ] ; then
 		CORE_PEER_LOCALMSPID="Org1MSP"
-		CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/zhigui/zigledger/peer/crypto/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
-		CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/zhigui/zigledger/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+		CORE_PEER_TLS_ROOTCERT_FILE=/etc/zhigui/msp/crypto/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
+		CORE_PEER_MSPCONFIGPATH=/etc/zhigui/msp/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
 		if [ $PEER -eq 0 ]; then
 			CORE_PEER_ADDRESS=peer0.org1.example.com:7051
 		else
@@ -38,8 +38,8 @@ setGlobals () {
 		fi
 	elif [ $ORG -eq 2 ] ; then
 		CORE_PEER_LOCALMSPID="Org2MSP"
-		CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/zhigui/zigledger/peer/crypto/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt
-		CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/zhigui/zigledger/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
+		CORE_PEER_TLS_ROOTCERT_FILE=/etc/zhigui/msp/crypto/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt
+		CORE_PEER_MSPCONFIGPATH=/etc/zhigui/msp/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
 		if [ $PEER -eq 0 ]; then
 			CORE_PEER_ADDRESS=peer0.org2.example.com:7051
 		else
@@ -48,8 +48,8 @@ setGlobals () {
 
 	elif [ $ORG -eq 3 ] ; then
 		CORE_PEER_LOCALMSPID="Org3MSP"
-		CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/zhigui/zigledger/peer/crypto/peerOrganizations/org3.example.com/peers/peer0.org3.example.com/tls/ca.crt
-		CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/zhigui/zigledger/peer/crypto/peerOrganizations/org3.example.com/users/Admin@org3.example.com/msp
+		CORE_PEER_TLS_ROOTCERT_FILE=/etc/zhigui/msp/crypto/peerOrganizations/org3.example.com/peers/peer0.org3.example.com/tls/ca.crt
+		CORE_PEER_MSPCONFIGPATH=/etc/zhigui/msp/crypto/peerOrganizations/org3.example.com/users/Admin@org3.example.com/msp
 		if [ $PEER -eq 0 ]; then
 			CORE_PEER_ADDRESS=peer0.org3.example.com:7051
 		else
@@ -228,7 +228,7 @@ signConfigtxAsPeerOrg() {
         PEERORG=$1
         TX=$2
         CORE_PEER_LOCALMSPID=OrdererMSP
-        CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/zhigui/zigledger/peer/crypto/ordererOrganizations/example.com/users/Admin@example.com/msp
+        CORE_PEER_MSPCONFIGPATH=/etc/zhigui/msp/crypto/ordererOrganizations/example.com/users/Admin@example.com/msp
         set -x
         peer channel signconfigtx -f "${TX}"
         set +x
