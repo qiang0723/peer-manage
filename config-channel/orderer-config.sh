@@ -49,7 +49,7 @@ BLACKLISTED_VERSIONS="^1\.0\. ^1\.1\.0-preview ^1\.1\.0-alpha"
 function networkUp () {
 
   # now run the end to end script
-  docker exec mulhost-zig_cli_1 config-scripts/config-script.sh $CHANNEL_NAME $CLI_DELAY $LANGUAGE $CLI_TIMEOUT
+  docker exec featuretestbft_cli.org1.example.com_1 config-scripts/config-script.sh $CHANNEL_NAME $CLI_DELAY $LANGUAGE $CLI_TIMEOUT
   if [ $? -ne 0 ]; then
     echo "ERROR !!!! Test failed"
     exit 1
