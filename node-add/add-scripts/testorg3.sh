@@ -30,7 +30,7 @@ TIMEOUT="$4"
 LANGUAGE=`echo "$LANGUAGE" | tr [:upper:] [:lower:]`
 COUNTER=1
 MAX_RETRY=5
-ORDERER_CA=/opt/gopath/src/github.com/zhigui/zigledger/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
+ORDERER_CA=/etc/zhigui/msp/crypto/ordererOrganizations/example.com/orderers/orderer0.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
 
 CC_SRC_PATH="github.com/chaincode/chaincode_example02/go/"
 if [ "$LANGUAGE" = "node" ]; then
@@ -47,8 +47,8 @@ echo "Channel name : "$CHANNEL_NAME
 #chaincodeQuery 0 3 80
 
 tokenchaincodeQuery 0 3
-tokenchaincodeInvoke 0 3
-tokenchaincodeQuery 0 3
+#tokenchaincodeInvoke 0 3
+#tokenchaincodeQuery 0 3
 
 echo
 echo "========= All GOOD, ADD-PEER test execution completed =========== "

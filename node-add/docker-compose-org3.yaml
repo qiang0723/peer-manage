@@ -30,7 +30,7 @@ services:
 
 
 
-  Org3cli:
+  cli.org3.example.com:
     hostname: Org3cli
     network_mode: "host"
     image: zhigui/zigledger-tools:x86_64-1.1.2
