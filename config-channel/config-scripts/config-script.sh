@@ -168,6 +168,8 @@ set +x
 
 echo "Verify================= "
 
+sleep 10
+
 peer channel fetch config config_new_block.pb -o orderer0.example.com:7050 -c $CHANNEL_NAME --tls --cafile $ORDERER_CA
 
 configtxlator proto_decode --input config_new_block.pb --type common.Block | jq .data.data[0].payload.data.config > config_new_block.json

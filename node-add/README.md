@@ -1,4 +1,6 @@
 
+需要映射channel-artifacts 到 cli的工作目录
+
 ## cli1里操作：
 ./node-add.sh up
 
