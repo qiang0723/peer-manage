@@ -98,7 +98,7 @@ function networkUp () {
   fi
   # start org3 peers
   echo "Move host2 to set up Org3 network"
-  fi
+
   if [ $? -ne 0 ]; then
     echo "ERROR !!!! Unable to start Org3 network"
     exit 1
